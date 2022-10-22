@@ -1,5 +1,5 @@
 import { makeStyles } from '@mui/styles'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const useStyles = makeStyles({
     firstStyle:{
@@ -16,12 +16,26 @@ const useStyles = makeStyles({
 
 const Column = (props) => {
     const{
-        index 
+        backgroundColor,
+        columns,
+        setColumns,
+        height
     }=props
     const { firstStyle, secondStyle} = useStyles(props)
 
+    /* useEffect(() => {
+        if(backgroundColor != "blue")
+            setTimeout(() => {
+                setColumns(current =>
+                current.map(obj => (
+                    {...obj, height: obj.height, backgroundColor: 'blue'}
+                )),
+                );
+            }, 500);
+    }, [backgroundColor])  */
+    
     return (
-        <div className={`${firstStyle} ${secondStyle}`}></div>
+        <div className={`${firstStyle} ${secondStyle}`}>{height}</div>
     )
 }
 
