@@ -4,8 +4,8 @@ import React, { useEffect } from 'react'
 const useStyles = makeStyles({
     firstStyle:{
         display:"flex",
-        width:"25px",
-        marginRight:"5px",
+        width:"5px",
+        marginRight:"2px",
         backgroundColor: props => props.backgroundColor,
     },
 
@@ -35,7 +35,7 @@ const Column = (props) => {
     }, [backgroundColor])  */
     
     return (
-        <div className={`${firstStyle} ${secondStyle}`}>{height}</div>
+        <div className={`${firstStyle} ${secondStyle}`}>{null}</div>
     )
 }
 

@@ -15,7 +15,7 @@ export default class Visualizer extends React.Component {
  }
 
  generateNumber() {
-    const count = 25
+    const count = 100
     var array = []
     for(let i = 0; i < count; i++){
         array.push({height:(Math.floor(Math.random() * 500)), backgroundColor:"blue"})
@@ -23,17 +23,25 @@ export default class Visualizer extends React.Component {
     this.setState({array});
  }
 
- sortColumn() {
+ sleep = ms => new Promise(
+    resolve => setTimeout(resolve, ms)
+  );
+
+ async sortColumn() {
     var array = this.state.array
     for(let i = 0; i < array.length; i++){
         for(let j = 0; j < array.length - i - 1; j++){
-            array[j].backgroundColor = "red"
             if(array[j + 1].height < array[j].height){
                 [array[j + 1],array[j]] = [array[j],array[j + 1]] 
                 this.setState({array})
+                array[j].backgroundColor= "red"
+                array[j + 1].backgroundColor= "red"
+                await this.sleep(1)
+                array[j].backgroundColor= "blue"
+                array[j + 1].backgroundColor= "blue"
             };            
         };
-    };
+    } ;
 }
     
 
